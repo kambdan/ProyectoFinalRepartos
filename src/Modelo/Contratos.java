@@ -11,4 +11,13 @@ package Modelo;
  */
 public class Contratos {
     
+    String ciudadDestino;
+    int dia,mes,ano;
+    
+    void alquilarViaje(){}
+    void transportar(){}
+    void solicitarProducto(){}
+    void calcular(){}   //calcula el peso y volumentootal del paquete
+    
+    
 }

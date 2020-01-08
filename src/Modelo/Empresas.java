@@ -11,4 +11,10 @@ package Modelo;
  */
 public class Empresas {
     
+    String direccion;
+    long telefono;
+    
+    void registrarActividad(){}
+    void dicidirRutas(){}
+    
 }
