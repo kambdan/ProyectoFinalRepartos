@@ -11,4 +11,23 @@ package Modelo;
  */
 public class Mantenimientos {
     
+    
+    
+    public void crear(){
+    
+    }
+     public void modificar(){
+     
+     }
+     
+     public void eliminar(){
+     
+     }
+     public void consultar(){
+     
+     }
+     
+    public void mostrar(){
+    
+    }
 }
