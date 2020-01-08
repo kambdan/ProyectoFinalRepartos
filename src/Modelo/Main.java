@@ -10,7 +10,6 @@ package Modelo;
  * @author STRIX
  */
 public class Main {
-
     /**
      * @param args the command line arguments
      */
