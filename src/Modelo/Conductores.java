@@ -11,7 +11,15 @@ package Modelo;
  */
 public class Conductores {
     
-    long cedula;
+    private long cedula;
+
+    public long getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(long cedula) {
+        this.cedula = cedula;
+    }
     
     
 }

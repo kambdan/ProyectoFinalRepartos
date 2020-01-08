@@ -11,8 +11,40 @@ package Modelo;
  */
 public class Contratos {
     
-    String ciudadDestino;
-    int dia,mes,ano;
+    private String ciudadDestino;
+    private int dia,mes,ano;
+
+    public String getCiudadDestino() {
+        return ciudadDestino;
+    }
+
+    public void setCiudadDestino(String ciudadDestino) {
+        this.ciudadDestino = ciudadDestino;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
     
     void alquilarViaje(){}
     void transportar(){}
