@@ -10,5 +10,7 @@ package Modelo;
  * @author STRIX
  */
 public class Clientes {
+    private String correoElectronico;
+    private String direccion;
     
 }
