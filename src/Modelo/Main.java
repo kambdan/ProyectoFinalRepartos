@@ -19,6 +19,10 @@ public class Main {
         System.out.println("hola");
         System.out.println("Que tal");
         System.out.println("que mas");
+        System.out.println("");
+        for (int i = 0; i < 10; i++) {
+            
+        }
     }
     
 }
