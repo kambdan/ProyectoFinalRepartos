@@ -1,14 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-/**
- *
- * @author STRIX
- */
+
 public class Vehiculos {
+    //Atributos de la Clase Vehiculos
+    private String Placa;
+    private String Marca;
+    private String Modelo;
+    private double PesoMaximo;
+    private double VolumenMaximo;
+
+    
+    public String getPlaca() {
+        return Placa;
+    }
+
+    public void setPlaca(String Placa) {
+        this.Placa = Placa;
+    }
+
+    public String getMarca() {
+        return Marca;
+    }
+
+    public void setMarca(String Marca) {
+        this.Marca = Marca;
+    }
+
+    public String getModelo() {
+        return Modelo;
+    }
+
+    public void setModelo(String Modelo) {
+        this.Modelo = Modelo;
+    }
+
+    public double getPesoMaximo() {
+        return PesoMaximo;
+    }
+
+    public void setPesoMaximo(double PesoMaximo) {
+        this.PesoMaximo = PesoMaximo;
+    }
+
+    public double getVolumenMaximo() {
+        return VolumenMaximo;
+    }
+
+    public void setVolumenMaximo(double VolumenMaximo) {
+        this.VolumenMaximo = VolumenMaximo;
+    }
     
 }

@@ -11,4 +11,26 @@ package Modelo;
  */
 public class Empresas {
     
+    private String direccion;
+    private long telefono;
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public long getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
+    }
+    
+    void registrarActividad(){}
+    void dicidirRutas(){}
+    
 }
