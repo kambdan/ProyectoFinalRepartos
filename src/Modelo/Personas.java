@@ -6,6 +6,11 @@ public class Personas {
     private String Nombre;
     private long telefono;
 
+    public Personas(String Nombre, long telefono) {
+        this.Nombre = Nombre;
+        this.telefono = telefono;
+    }
+
     
     
     public String getNombre() {

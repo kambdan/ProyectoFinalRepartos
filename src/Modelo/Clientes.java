@@ -9,7 +9,7 @@ package Modelo;
  *
  * @author STRIX
  */
-public class Clientes {
+public class Clientes extends Personas{
     private String correoElectronico;
     private String direccion;
     private Clientes siguienteCliente;
@@ -17,7 +17,8 @@ public class Clientes {
    
     
     //Constructor
-    public Clientes(String correo, String d){
+    public Clientes(String Nombre, long telefono,String correo, String d){
+        super(Nombre,telefono);
         this.correoElectronico=correo;
         this.direccion=d;
         this.siguienteCliente=null;

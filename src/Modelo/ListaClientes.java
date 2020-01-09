@@ -34,8 +34,8 @@ public class ListaClientes{
     }
     
     //Funcion para Agregar un nuevo cliente a nuestra lista
-    void agregarCliente(String correo, String direccion){
-        Clientes nuevoCliente=new Clientes(correo,direccion);
+    void agregarCliente(String Nombre, long telefono,String correo, String direccion){
+        Clientes nuevoCliente=new Clientes(Nombre,telefono,correo,direccion);
         if(headCliente==null){
             headCliente=nuevoCliente;
             tailCliente=nuevoCliente;
