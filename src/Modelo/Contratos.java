@@ -13,7 +13,17 @@ public class Contratos {
     
     private String ciudadDestino;
     private int dia,mes,ano;
-
+    private Contratos siguienteContrato;
+    
+    
+    public Contratos(String ciudadDestino, int dia, int mes, int ano) {
+        this.ciudadDestino = ciudadDestino;
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.siguienteContrato=null;
+    }
+    
     public String getCiudadDestino() {
         return ciudadDestino;
     }
@@ -45,6 +55,15 @@ public class Contratos {
     public void setAno(int ano) {
         this.ano = ano;
     }
+    
+    public Contratos getSiguienteContrato() {
+        return siguienteContrato;
+    }
+
+    public void setSiguienteContrato(Contratos siguienteContrato) {
+        this.siguienteContrato = siguienteContrato;
+    }
+    
     
     void alquilarViaje(){}
     void transportar(){}
