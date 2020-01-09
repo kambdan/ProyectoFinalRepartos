@@ -12,7 +12,24 @@ package Modelo;
 public class Conductores {
     
     private long cedula;
+    private Conductores siguienteConductor;
 
+    
+    public Conductores(){
+        this.cedula=cedula;
+        this.siguienteConductor=null;
+    }
+    
+    
+    public Conductores getSiguienteConductor() {
+        return siguienteConductor;
+    }
+
+    public void setSiguienteConductor(Conductores siguienteConductor) {
+        this.siguienteConductor = siguienteConductor;
+    }
+
+    
     public long getCedula() {
         return cedula;
     }

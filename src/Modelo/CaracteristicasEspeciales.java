@@ -12,6 +12,22 @@ package Modelo;
 public class CaracteristicasEspeciales {
     
     private String caracteristicas;
+    private String descripcion;
+    private CaracteristicasEspeciales siguienteCaracteristica;
+        
+    public CaracteristicasEspeciales() {
+        this.caracteristicas=caracteristicas;
+        this.descripcion=descripcion;
+        this.siguienteCaracteristica=null;
+    }
+  
+    public CaracteristicasEspeciales getSiguienteCaracteristica() {
+        return siguienteCaracteristica;
+    }
+
+    public void setSiguienteCaracteristica(CaracteristicasEspeciales siguienteCaracteristica) {
+        this.siguienteCaracteristica = siguienteCaracteristica;
+    } 
 
     public String getCaracteristicas() {
         return caracteristicas;
@@ -28,6 +44,6 @@ public class CaracteristicasEspeciales {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    private String descripcion;
+    
     
 }

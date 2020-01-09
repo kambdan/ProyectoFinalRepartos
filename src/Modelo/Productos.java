@@ -7,7 +7,26 @@ public class Productos {
     private String Unidad;
     private double Peso;
     private double Volumen;
+    private Productos siguienteProducto;
 
+    public Productos getSiguienteProducto() {
+        return siguienteProducto;
+    }
+
+    public void setSiguienteProducto(Productos siguienteProducto) {
+        this.siguienteProducto = siguienteProducto;
+    }
+    
+    
+    
+    public Productos(String NombreProducto,String Unidad, double Peso, double Volumen){
+        this.NombreProducto=NombreProducto;
+        this.Unidad=Unidad;
+        this.Peso=Peso;
+        this.Volumen=Volumen;
+        this.siguienteProducto=null;
+    
+    }
     
     public String getNombreProducto() {
         return NombreProducto;
