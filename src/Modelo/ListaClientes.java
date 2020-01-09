@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
 public class ListaClientes{
@@ -34,7 +30,7 @@ public class ListaClientes{
     }
     
     //Funcion para Agregar un nuevo cliente a nuestra lista
-    void agregarCliente(String Nombre, long telefono,String correo, String direccion){
+    public void agregarCliente(String Nombre, long telefono,String correo, String direccion){
         Clientes nuevoCliente=new Clientes(Nombre,telefono,correo,direccion);
         if(headCliente==null){
             headCliente=nuevoCliente;
@@ -43,6 +39,7 @@ public class ListaClientes{
             tailCliente.setSiguienteCliente(nuevoCliente);
             tailCliente=nuevoCliente;
         }
+        System.out.println(""+tailCliente.getNombre());
     }
     
     

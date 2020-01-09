@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-/**
- *
- * @author CARLOS ARMIJOS
- */
+
 public class ListaConductores {
     
     
@@ -17,10 +10,10 @@ public class ListaConductores {
     
     
     
-    public void agregarConductor(long cedula){
+    public void agregarConductor(String Nombre,long telefono,long cedula){
         
-        Conductores miConductor=new Conductores();
-        miConductor.setCedula(cedula);
+        Conductores miConductor=new Conductores(Nombre,telefono,cedula);
+        
         
         if(headConductor==null){
             headConductor=miConductor;

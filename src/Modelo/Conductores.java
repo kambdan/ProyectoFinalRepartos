@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
 
-/**
- *
- * @author STRIX
- */
-public class Conductores {
+public class Conductores extends Personas{
     
     private long cedula;
     private Conductores siguienteConductor;
 
     
-    public Conductores(){
+    public Conductores(String Nombre, long telefono, long cedula){
+        super(Nombre,telefono);
         this.cedula=cedula;
         this.siguienteConductor=null;
     }

@@ -10,7 +10,7 @@ public class Personas {
         this.Nombre = Nombre;
         this.telefono = telefono;
     }
-
+    
     
     
     public String getNombre() {
