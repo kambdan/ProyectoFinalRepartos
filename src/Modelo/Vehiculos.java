@@ -9,7 +9,18 @@ public class Vehiculos {
     private String Modelo;
     private double PesoMaximo;
     private double VolumenMaximo;
+    private Vehiculos siguienteVehiculo;
 
+    
+    //Constructor
+    public Vehiculos(String placa, String marca, String modelo, double peso, double volumen){
+        this.Placa=placa;
+        this.Marca=marca;
+        this.Modelo=Modelo;
+        this.PesoMaximo=peso;
+        this.VolumenMaximo=volumen;
+        this.siguienteVehiculo=null;
+    }
     
     public String getPlaca() {
         return Placa;
@@ -50,5 +61,14 @@ public class Vehiculos {
     public void setVolumenMaximo(double VolumenMaximo) {
         this.VolumenMaximo = VolumenMaximo;
     }
+    
+    public Vehiculos getSiguienteVehiculo() {
+        return siguienteVehiculo;
+    }
+
+    public void setSiguienteVehiculo(Vehiculos siguienteVehiculo) {
+        this.siguienteVehiculo = siguienteVehiculo;
+    }
+    
     
 }
