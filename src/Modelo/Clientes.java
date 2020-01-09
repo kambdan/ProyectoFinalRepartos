@@ -12,7 +12,19 @@ package Modelo;
 public class Clientes {
     private String correoElectronico;
     private String direccion;
+    private Clientes siguienteCliente;
 
+   
+    
+    //Constructor
+    public Clientes(String correo, String d){
+        this.correoElectronico=correo;
+        this.direccion=d;
+        this.siguienteCliente=null;
+        
+    }
+    
+    
     public String getCorreoElectronico() {
         return correoElectronico;
     }
@@ -29,4 +41,12 @@ public class Clientes {
         this.direccion = direccion;
     }
     
+     public Clientes getSiguienteCliente() {
+        return siguienteCliente;
+    }
+
+    public void setSiguienteCliente(Clientes siguienteCliente) {
+        this.siguienteCliente = siguienteCliente;
+    }
+
 }
