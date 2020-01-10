@@ -9,13 +9,14 @@ package Vista;
  *
  * @author STRIX
  */
-public class ventanaEntrada extends javax.swing.JFrame {
+public class ventanaEntradaClientes extends javax.swing.JFrame {
 
     /**
      * Creates new form ventanaEntrada
      */
-    public ventanaEntrada() {
+    public ventanaEntradaClientes() {
         initComponents();
+        
     }
 
     /**
@@ -53,7 +54,7 @@ public class ventanaEntrada extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Informacion Personal");
+        jLabel1.setText("Informacion Personal Clientes");
 
         jLabel2.setText("Nombre:");
 
@@ -129,6 +130,7 @@ public class ventanaEntrada extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
@@ -152,22 +154,24 @@ public class ventanaEntrada extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ventanaEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaEntradaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ventanaEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaEntradaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ventanaEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaEntradaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ventanaEntrada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ventanaEntradaClientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        //</editor-fold>
+           
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ventanaEntrada().setVisible(true);
+                new ventanaEntradaClientes().setVisible(true);
             }
         });
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
