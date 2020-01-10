@@ -3,8 +3,8 @@ package CONTROLADOR;
 
 import Modelo.Clientes;
 import Modelo.ListaClientes;
-import Vista.NewJFrame;
-import Vista.VentanPrincipal;
+import Vista.ventanaCRUD;
+import Vista.VentanaPrincipal;
 import Vista.ventanaEntradaClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,21 +14,31 @@ public class Controlador implements ActionListener{
     private ListaClientes miListaClientes;
     private Clientes miCliente;
     private ventanaEntradaClientes miVentanaIngreso=new ventanaEntradaClientes();
-    private NewJFrame miView;
-
-    public Controlador( NewJFrame miView,ListaClientes miListaClientes) {
+    private VentanaPrincipal miViewPrincipal;
+    private ventanaCRUD viewCrud;
+    
+    public Controlador(VentanaPrincipal miViewPrincipal,ListaClientes miListaClientes) {
         this.miListaClientes=null;
        
-        this.miView=miView;
+        this.miViewPrincipal=miViewPrincipal;
+        
         System.out.println("HhHH");
+        viewCrud=new ventanaCRUD();
         this.miListaClientes=miListaClientes;
-        miVentanaIngreso.btnIngresar.addActionListener(this);
-        this.miView.btnCrear.addActionListener(this);
+        init();
          // TODO add your handling code here:
-      // VentanPrincipal viewPrincipal=new VentanPrincipal();
+      // VentanaPrincipal viewPrincipal=new VentanaPrincipal();
        //viewPrincipal.setVisible(true);
         
              
+    }
+    private void init(){
+        viewCrud.btnCrear.addActionListener(this);
+        miVentanaIngreso.btnIngresar.addActionListener(this);
+        miViewPrincipal.btnClientes.addActionListener(this);
+        miVentanaIngreso.btnIngresar.addActionListener(this); 
+    
+    
     }
     
    
@@ -43,15 +53,23 @@ public class Controlador implements ActionListener{
   
             @Override
  public void actionPerformed(ActionEvent e) {
-            if(e.getSource()==miVentanaIngreso.btnIngresar){
-                miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
-                System.out.println("Hola bbrbbr");
+            //if(e.getSource()==miVentanaIngreso.btnIngresar){
+          //     
+           // }
+            if(e.getSource()==miViewPrincipal.btnClientes){
+                viewCrud.setVisible(true);
+                
             }
-            if(e.getSource()==miView.btnCrear){
-                 
-                miVentanaIngreso.setVisible(true);   
-            }
-           
+            if(viewCrud.btnCrear==e.getSource()){
+                    miVentanaIngreso.setVisible(true);
+                    
+                    
+                  
+                }
+           if(miVentanaIngreso.btnIngresar==e.getSource()){
+                         miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+                        System.out.println("Hola bbrbbr");
+          }
 }
 
     

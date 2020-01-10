@@ -11,12 +11,12 @@ import javax.swing.ImageIcon;
  *
  * @author STRIX
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class ventanaCRUD extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public ventanaCRUD() {
         initComponents();
          
     }
