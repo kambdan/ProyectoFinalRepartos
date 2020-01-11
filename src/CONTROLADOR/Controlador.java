@@ -8,6 +8,7 @@ import Vista.VentanaPrincipal;
 import Vista.ventanaEntradaClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.DefaultListModel;
 
 public class Controlador implements ActionListener{
     //Para poder controlar el otro paquete de vista
@@ -21,7 +22,8 @@ public class Controlador implements ActionListener{
         this.miListaClientes=null;
        
         this.miViewPrincipal=miViewPrincipal;
-        
+       
+       
         System.out.println("HhHH");
         viewCrud=new ventanaCRUD();
         this.miListaClientes=miListaClientes;
@@ -36,8 +38,16 @@ public class Controlador implements ActionListener{
         viewCrud.btnCrear.addActionListener(this);
         miVentanaIngreso.btnIngresar.addActionListener(this);
         miViewPrincipal.btnClientes.addActionListener(this);
+        miViewPrincipal.btnCaracteristicas.addActionListener(this);
+        miViewPrincipal.btnCiudad.addActionListener(this);
+        miViewPrincipal.btnContratos.addActionListener(this);
+        miViewPrincipal.btnEmpresa.addActionListener(this);
+        miViewPrincipal.btnProducto.addActionListener(this);
+        miViewPrincipal.btnVehiculos.addActionListener(this);
+        miViewPrincipal.btnViajar.addActionListener(this);
         miVentanaIngreso.btnIngresar.addActionListener(this); 
-    
+        miViewPrincipal.btnConductores.addActionListener(this);
+          
     
     }
     
@@ -58,19 +68,47 @@ public class Controlador implements ActionListener{
            // }
             if(e.getSource()==miViewPrincipal.btnClientes){
                 viewCrud.setVisible(true);
-                
+                System.out.println("dos vecss");
             }
             if(viewCrud.btnCrear==e.getSource()){
                     miVentanaIngreso.setVisible(true);
-                    
-                    
-                  
-                }
+                     viewCrud.setVisible(false);
+
+                 }
            if(miVentanaIngreso.btnIngresar==e.getSource()){
-                         miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
-                        System.out.println("Hola bbrbbr");
+                miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+                // miVentanaIngreso=null;
+                miVentanaIngreso.setVisible(false);
+               
+                viewCrud.setVisible(true);
+                
+                DefaultListModel modelo = new DefaultListModel();
+                mostrarClientes(modelo);
+               System.out.println("**");
+              
+               
+                 
           }
+           
+           
 }
+ 
+ private void mostrarClientes(DefaultListModel modelo){
+     Clientes miCliente=new Clientes();
+     miCliente=miListaClientes.getHeadCliente();
+     
+     int i=0;
+     while(miCliente!=null){
+          modelo.addElement(miCliente.getNombre());
+          miCliente=miCliente.getSiguienteCliente();
+          System.out.println(": "+i+" ");
+          i++;
+     }
+     viewCrud.listCrud.setModel(modelo);
+    }
+ 
+ 
+ }
 
     
-}
+

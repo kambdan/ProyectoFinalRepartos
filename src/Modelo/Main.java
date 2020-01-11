@@ -16,6 +16,7 @@ public class Main{
        // miVentanaEntr.setVisible(true);
 
         miView.setVisible(true);
+        miView.setLocationRelativeTo(null);
         
        
 

@@ -9,6 +9,9 @@ public class Clientes extends Personas{
    
     
     //Constructor
+    public Clientes(){
+    
+    }
     public Clientes(String Nombre, long telefono,String correo, String d){
         super(Nombre,telefono);
         this.correoElectronico=correo;
@@ -17,7 +20,7 @@ public class Clientes extends Personas{
         
     }
     
-    
+  
     public String getCorreoElectronico() {
         return correoElectronico;
     }
