@@ -28,6 +28,10 @@ public class Productos {
     
     }
     
+    public Productos(){
+    
+    }
+    
     public String getNombreProducto() {
         return NombreProducto;
     }
