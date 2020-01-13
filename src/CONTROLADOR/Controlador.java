@@ -3,6 +3,7 @@ package CONTROLADOR;
 
 import Modelo.Clientes;
 import Modelo.ListaClientes;
+import Vista.VentanaEntradaProductos;
 import Vista.ventanaCRUD;
 import Vista.VentanaPrincipal;
 import Vista.ventanaEntradaClientes;
@@ -14,29 +15,24 @@ public class Controlador implements ActionListener{
     //Para poder controlar el otro paquete de vista
     private ListaClientes miListaClientes;
     private Clientes miCliente;
-    private ventanaEntradaClientes miVentanaIngreso=new ventanaEntradaClientes();
+    private ventanaEntradaClientes miVentanaIngreso;
     private VentanaPrincipal miViewPrincipal;
     private ventanaCRUD viewCrud;
-    
+    private VentanaEntradaProductos miViewIngresoProd;
     public Controlador(VentanaPrincipal miViewPrincipal,ListaClientes miListaClientes) {
         this.miListaClientes=null;
-       
         this.miViewPrincipal=miViewPrincipal;
-       
-       
-        System.out.println("HhHH");
         viewCrud=new ventanaCRUD();
         this.miListaClientes=miListaClientes;
+        miVentanaIngreso =new ventanaEntradaClientes();
+        miViewIngresoProd=new VentanaEntradaProductos();
         init();
-         // TODO add your handling code here:
-      // VentanaPrincipal viewPrincipal=new VentanaPrincipal();
-       //viewPrincipal.setVisible(true);
-        
+       
              
     }
     private void init(){
         viewCrud.btnCrear.addActionListener(this);
-        miVentanaIngreso.btnIngresar.addActionListener(this);
+      
         miViewPrincipal.btnClientes.addActionListener(this);
         miViewPrincipal.btnCaracteristicas.addActionListener(this);
         miViewPrincipal.btnCiudad.addActionListener(this);
@@ -47,8 +43,7 @@ public class Controlador implements ActionListener{
         miViewPrincipal.btnViajar.addActionListener(this);
         miVentanaIngreso.btnIngresar.addActionListener(this); 
         miViewPrincipal.btnConductores.addActionListener(this);
-          
-    
+         
     }
     
    
@@ -66,25 +61,30 @@ public class Controlador implements ActionListener{
             //if(e.getSource()==miVentanaIngreso.btnIngresar){
           //     
            // }
+           
             if(e.getSource()==miViewPrincipal.btnClientes){
                 viewCrud.setVisible(true);
                 System.out.println("dos vecss");
+                miViewPrincipal.setVisible(false);
+                
             }
             if(viewCrud.btnCrear==e.getSource()){
+                   
                     miVentanaIngreso.setVisible(true);
                      viewCrud.setVisible(false);
 
                  }
            if(miVentanaIngreso.btnIngresar==e.getSource()){
-                miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+              
+               miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
                 // miVentanaIngreso=null;
                 miVentanaIngreso.setVisible(false);
-               
-                viewCrud.setVisible(true);
-                
                 DefaultListModel modelo = new DefaultListModel();
                 mostrarClientes(modelo);
-               System.out.println("**");
+                System.out.println("**");
+                viewCrud.setVisible(true);
+                //miVentanaIngreso=null;
+               
               
                
                  

@@ -32,14 +32,13 @@ public class VentanaEntradaProductos extends javax.swing.JFrame {
         jLabelCaracteristicasEspecialesProductos = new javax.swing.JLabel();
         jLabelUnidad = new javax.swing.JLabel();
         jLabelPesoUnidad = new javax.swing.JLabel();
-        jTextFieldNombreProducto = new javax.swing.JTextField();
-        jTextFieldCaracteristicasEspecialesProductos = new javax.swing.JTextField();
-        jTextFieldUnidad = new javax.swing.JTextField();
-        jTextFieldPesoPorUnidad = new javax.swing.JTextField();
+        txtNombProd = new javax.swing.JTextField();
+        txtCaract = new javax.swing.JTextField();
+        txtUnidad = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
         jLabelVolumenUnidad = new javax.swing.JLabel();
-        jTextFieldVolumenUnidad = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtVolum = new javax.swing.JTextField();
+        btnIngresarProd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,23 +52,21 @@ public class VentanaEntradaProductos extends javax.swing.JFrame {
 
         jLabelPesoUnidad.setText("Peso por unidad");
 
-        jTextFieldNombreProducto.addActionListener(new java.awt.event.ActionListener() {
+        txtNombProd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreProductoActionPerformed(evt);
+                txtNombProdActionPerformed(evt);
             }
         });
 
         jLabelVolumenUnidad.setText("Volumen por unidad");
 
-        jTextFieldVolumenUnidad.addActionListener(new java.awt.event.ActionListener() {
+        txtVolum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldVolumenUnidadActionPerformed(evt);
+                txtVolumActionPerformed(evt);
             }
         });
 
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton2");
+        btnIngresarProd.setText("Ingresar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,18 +83,16 @@ public class VentanaEntradaProductos extends javax.swing.JFrame {
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldNombreProducto)
-                        .addComponent(jTextFieldCaracteristicasEspecialesProductos)
-                        .addComponent(jTextFieldUnidad)
-                        .addComponent(jTextFieldPesoPorUnidad)
-                        .addComponent(jTextFieldVolumenUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
+                        .addComponent(txtNombProd)
+                        .addComponent(txtCaract)
+                        .addComponent(txtUnidad)
+                        .addComponent(txtPeso)
+                        .addComponent(txtVolum, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE))
                     .addComponent(jLabelDatosProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 397, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(181, 654, Short.MAX_VALUE)
+                .addComponent(btnIngresarProd)
                 .addGap(155, 155, 155))
         );
         layout.setVerticalGroup(
@@ -107,43 +102,41 @@ public class VentanaEntradaProductos extends javax.swing.JFrame {
                 .addComponent(jLabelDatosProductos)
                 .addGap(89, 89, 89)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelNombreProducto))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldCaracteristicasEspecialesProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCaract, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCaracteristicasEspecialesProductos))
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUnidad)
-                    .addComponent(jTextFieldUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPesoUnidad)
-                    .addComponent(jTextFieldPesoPorUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelVolumenUnidad)
-                    .addComponent(jTextFieldVolumenUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVolum, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 142, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addComponent(btnIngresarProd)
                 .addGap(61, 61, 61))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreProductoActionPerformed
+    private void txtNombProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombProdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreProductoActionPerformed
+    }//GEN-LAST:event_txtNombProdActionPerformed
 
-    private void jTextFieldVolumenUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldVolumenUnidadActionPerformed
+    private void txtVolumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVolumActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldVolumenUnidadActionPerformed
+    }//GEN-LAST:event_txtVolumActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,18 +174,17 @@ public class VentanaEntradaProductos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    public javax.swing.JButton btnIngresarProd;
     private javax.swing.JLabel jLabelCaracteristicasEspecialesProductos;
     private javax.swing.JLabel jLabelDatosProductos;
     private javax.swing.JLabel jLabelNombreProducto;
     private javax.swing.JLabel jLabelPesoUnidad;
     private javax.swing.JLabel jLabelUnidad;
     private javax.swing.JLabel jLabelVolumenUnidad;
-    private javax.swing.JTextField jTextFieldCaracteristicasEspecialesProductos;
-    private javax.swing.JTextField jTextFieldNombreProducto;
-    private javax.swing.JTextField jTextFieldPesoPorUnidad;
-    private javax.swing.JTextField jTextFieldUnidad;
-    private javax.swing.JTextField jTextFieldVolumenUnidad;
+    public javax.swing.JTextField txtCaract;
+    public javax.swing.JTextField txtNombProd;
+    public javax.swing.JTextField txtPeso;
+    public javax.swing.JTextField txtUnidad;
+    public javax.swing.JTextField txtVolum;
     // End of variables declaration//GEN-END:variables
 }

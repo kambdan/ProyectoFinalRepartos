@@ -35,21 +35,19 @@
               <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextFieldNombreProducto" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldCaracteristicasEspecialesProductos" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldUnidad" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldPesoPorUnidad" max="32767" attributes="0"/>
-                      <Component id="jTextFieldVolumenUnidad" pref="393" max="32767" attributes="0"/>
+                      <Component id="txtNombProd" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtCaract" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtUnidad" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtPeso" max="32767" attributes="0"/>
+                      <Component id="txtVolum" pref="393" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jLabelDatosProductos" min="-2" pref="190" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="397" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="181" pref="654" max="32767" attributes="0"/>
+              <Component id="btnIngresarProd" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -61,37 +59,34 @@
               <Component id="jLabelDatosProductos" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jTextFieldNombreProducto" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombProd" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelNombreProducto" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jTextFieldCaracteristicasEspecialesProductos" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCaract" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelCaracteristicasEspecialesProductos" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelPesoUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldPesoPorUnidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPeso" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabelVolumenUnidad" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldVolumenUnidad" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="txtVolum" min="-2" pref="26" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="38" pref="142" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnIngresarProd" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -123,36 +118,49 @@
         <Property name="text" type="java.lang.String" value="Peso por unidad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNombreProducto">
+    <Component class="javax.swing.JTextField" name="txtNombProd">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNombreProductoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombProdActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCaracteristicasEspecialesProductos">
+    <Component class="javax.swing.JTextField" name="txtCaract">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUnidad">
+    <Component class="javax.swing.JTextField" name="txtUnidad">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPesoPorUnidad">
+    <Component class="javax.swing.JTextField" name="txtPeso">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelVolumenUnidad">
       <Properties>
         <Property name="text" type="java.lang.String" value="Volumen por unidad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldVolumenUnidad">
+    <Component class="javax.swing.JTextField" name="txtVolum">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldVolumenUnidadActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVolumActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnIngresarProd">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Ingresar"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
-      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
