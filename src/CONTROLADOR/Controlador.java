@@ -174,21 +174,32 @@ public class Controlador implements ActionListener{
              }
           
            if(viewCrud.btnBuscar==e.getSource()&&casoB==6){
-               System.out.println("siii entras");
                Productos miProducto=new Productos();
                miProducto=miListaProd.consultarProducto(miListaProd,viewCrud.txtBuscar.getText());
                DefaultListModel modelo = new DefaultListModel();
-               //System.out.println(" prd: "+miProducto.getNombreProducto());
                if(miProducto!=null){
                    modelo.addElement(miProducto.getNombreProducto());
                    viewCrud.listCrud.setModel(modelo);
                }else{
                    //vemtana mergente no esta el producto
-                   
+                    JOptionPane.showMessageDialog(null,"Elemento no encontrado");
                }
-                
-              
            }
+           
+           if(viewCrud.btnBuscar==e.getSource()&&casoB==8){
+               Clientes miCliente=new Clientes();
+               miCliente=miListaClientes.consultarCliente(miListaClientes,viewCrud.txtBuscar.getText());
+               DefaultListModel modelo = new DefaultListModel();
+               if(miCliente!=null){
+                   modelo.addElement(miCliente.getNombre());
+                   viewCrud.listCrud.setModel(modelo);
+               }else{
+                   //vemtana mergente no esta el producto
+                    JOptionPane.showMessageDialog(null,"Elemento no encontrado");
+               }
+           }
+           
+           
            
          
            

@@ -45,17 +45,17 @@ public class ListaProductos {
     
     public Productos consultarProducto(ListaProductos miLista, String NombreProducto){
         
-        Productos miProducto=new Productos();
-
-        
+        Productos miProducto;
         miProducto=miLista.headProducto;
-        while(miProducto!=null && miProducto.getNombreProducto()!=NombreProducto){
+        while(miProducto!=null && !miProducto.getNombreProducto().equals(NombreProducto)){
           miProducto=miProducto.getSiguienteProducto();
         }
         if(miProducto==null){
-            return null;
+            return miProducto;
+        }else{
+            System.out.println("producto: "+miProducto.getNombreProducto());
+            return miProducto;
         }
-        return miProducto;
     }
     
     void modificarProducto(ListaProductos miLista, String NombreProducto,String Unidad, double Peso, double Volumen){

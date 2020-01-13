@@ -42,6 +42,19 @@ public class ListaClientes{
         System.out.println(""+tailCliente.getNombre());
     }
     
+    public Clientes consultarCliente (ListaClientes miLista, String NombreCliente){
+        
+        Clientes miCliente;
+        miCliente=miLista.headCliente;
+        while(miCliente!=null && !miCliente.getNombre().equals(NombreCliente)){
+          miCliente=miCliente.getSiguienteCliente();
+        }
+        if(miCliente==null){
+            return miCliente;
+        }else{
+            return miCliente;
+        }
+    }
 
     
     
