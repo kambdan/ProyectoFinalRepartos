@@ -43,19 +43,19 @@ public class ListaProductos {
         }
     }
     
-    public int consultarProducto(ListaProductos miLista, String NombreProducto){
-        int bandera=0;
-        Productos miProducto;
+    public Productos consultarProducto(ListaProductos miLista, String NombreProducto){
+        
+        Productos miProducto=new Productos();
+
         
         miProducto=miLista.headProducto;
         while(miProducto!=null && miProducto.getNombreProducto()!=NombreProducto){
-            bandera++;
-            miProducto=miProducto.getSiguienteProducto();
+          miProducto=miProducto.getSiguienteProducto();
         }
         if(miProducto==null){
-            return bandera;
+            return null;
         }
-        return bandera;
+        return miProducto;
     }
     
     void modificarProducto(ListaProductos miLista, String NombreProducto,String Unidad, double Peso, double Volumen){
@@ -63,13 +63,17 @@ public class ListaProductos {
     int posicion;
     //char dato[100];
     Productos nodAux;
+    Productos nodProd;
     nodAux=miLista.headProducto;
-    posicion=consultarProducto(miLista,NombreProducto);
-    if(posicion!=-1){
+    
+    nodProd=consultarProducto(miLista,NombreProducto);
+    if(nodProd!=null){
 	System.out.println("ENCONTRADO");
-	for(int i=0;i<posicion;i++){
-            nodAux=nodAux.getSiguienteProducto();
-	}
+	while(nodProd!=nodAux){
+             nodAux=nodAux.getSiguienteProducto();
+        }
+           
+	
         nodAux.setNombreProducto(NombreProducto);
         nodAux.setUnidad(Unidad);
         nodAux.setPeso(Peso);

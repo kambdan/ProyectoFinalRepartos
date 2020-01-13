@@ -12,6 +12,7 @@ import Vista.ventanaEntradaClientes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener{
     //Para poder controlar el otro paquete de vista
@@ -38,8 +39,11 @@ public class Controlador implements ActionListener{
     private void init(){
         viewCrud.btnCrear.addActionListener(this);
         viewCrud.btnCrear.setActionCommand("Crear");
-        miViewIngresoProd.btnIngresarProd.addActionListener(this);
+        viewCrud.btnBuscar.addActionListener(this);
         
+        
+        miViewIngresoProd.btnIngresarProd.addActionListener(this);
+       
         
         
         
@@ -169,6 +173,22 @@ public class Controlador implements ActionListener{
                 viewCrud.setVisible(true);
              }
           
+           if(viewCrud.btnBuscar==e.getSource()&&casoB==6){
+               System.out.println("siii entras");
+               Productos miProducto=new Productos();
+               miProducto=miListaProd.consultarProducto(miListaProd,viewCrud.txtBuscar.getText());
+               DefaultListModel modelo = new DefaultListModel();
+               //System.out.println(" prd: "+miProducto.getNombreProducto());
+               if(miProducto!=null){
+                   modelo.addElement(miProducto.getNombreProducto());
+                   viewCrud.listCrud.setModel(modelo);
+               }else{
+                   //vemtana mergente no esta el producto
+                   
+               }
+                
+              
+           }
            
          
            
@@ -190,10 +210,10 @@ public class Controlador implements ActionListener{
     }
  
  private void mostrarClientes(){
-      DefaultListModel modelo = new DefaultListModel();
+      
      Clientes miCliente=new Clientes();
      miCliente=miListaClientes.getHeadCliente();
-     
+     DefaultListModel modelo = new DefaultListModel();
      int i=0;
      while(miCliente!=null){
           modelo.addElement(miCliente.getNombre());
