@@ -9,6 +9,10 @@ public class Productos {
     private double Volumen;
     private Productos siguienteProducto;
 
+    public Productos() {
+        
+    }
+
     public Productos getSiguienteProducto() {
         return siguienteProducto;
     }

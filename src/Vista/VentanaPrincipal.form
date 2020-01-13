@@ -32,35 +32,29 @@
                           <Component id="btnConductores" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnCaracteristicas" min="-2" pref="164" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnProducto" min="-2" pref="164" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnCiudad" min="-2" pref="164" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnVehiculos" alignment="1" min="-2" pref="164" max="-2" attributes="0"/>
-                                  <Component id="jButton6" alignment="1" min="-2" pref="164" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnCiudad" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="btnCaracteristicas" alignment="0" min="-2" pref="164" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnVehiculos" min="-2" pref="164" max="-2" attributes="0"/>
+                          <Component id="btnProducto" min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnViajar" min="-2" pref="435" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="btnContratos" min="-2" pref="164" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                              <Component id="btnClientes" min="-2" pref="164" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="btnContratos" min="-2" pref="164" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="btnClientes" min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="48" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnViajar" min="-2" pref="435" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,27 +67,22 @@
                       <Component id="btnEmpresa" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
                       <Component id="btnVehiculos" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="jButton6" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Component id="btnCiudad" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnConductores" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
-                      <Component id="btnCaracteristicas" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btnProducto" min="-2" pref="160" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnContratos" min="-2" pref="160" max="-2" attributes="0"/>
-                  <Component id="btnClientes" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="btnCiudad" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnConductores" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="btnCaracteristicas" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="btnProducto" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnContratos" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="btnClientes" alignment="3" min="-2" pref="160" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               <Component id="btnViajar" min="-2" pref="49" max="-2" attributes="0"/>
-              <EmptySpace pref="68" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,11 +125,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnProducto">
       <Properties>

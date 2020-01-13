@@ -12,7 +12,8 @@ public class Main{
        // NewJFrame miViewClientes=new NewJFrame();
         VentanaPrincipal miView =new VentanaPrincipal();
         ListaClientes miListaClientes=new ListaClientes();
-        Controlador miControlador=new Controlador(miView,miListaClientes);
+        ListaProductos miListaProductos=new ListaProductos();
+        Controlador miControlador=new Controlador(miView,miListaClientes,miListaProductos);
        // miVentanaEntr.setVisible(true);
 
         miView.setVisible(true);
