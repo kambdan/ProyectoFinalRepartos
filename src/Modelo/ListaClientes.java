@@ -26,5 +26,4 @@ public class ListaClientes{
     public void setTailCliente(Clientes tailCliente) {
         this.tailCliente = tailCliente;
     }
-       
 }
