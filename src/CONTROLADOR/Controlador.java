@@ -341,14 +341,16 @@ public class Controlador implements ActionListener{
            }
              
          if(miVentanaIngreso.btnIngresar==e.getSource() ){
+
+              miEmpresas.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+
               miEmpresas.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
               miVentanaIngreso.setVisible(false);
               mostrarClientes();
               System.out.println("**");
               viewCrud.setVisible(true);
             } 
-           
-       
+     
 }
  
   private void mostrarProductos(){
