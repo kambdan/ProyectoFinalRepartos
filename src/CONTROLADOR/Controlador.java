@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
 
 public class Controlador implements ActionListener{
     //Para poder controlar el otro paquete de vista
-    private ListaClientes miListaClientes;
-    private ListaProductos miListaProd;
+    
+    
     private Clientes miCliente;
     private ventanaEntradaClientes miVentanaIngreso;
     private VentanaPrincipal miViewPrincipal;
@@ -26,12 +26,11 @@ public class Controlador implements ActionListener{
     private ventanaCRUD viewCrud;
     private int casoB;
     private VentanaEntradaProductos miViewIngresoProd;
+    
     public Controlador(VentanaPrincipal miViewPrincipal,Empresas miEmpresas) {
-        this.miListaClientes=null;
+        
         this.miViewPrincipal=miViewPrincipal;
         viewCrud=new ventanaCRUD();
-        this.miListaClientes=new ListaClientes();
-        this.miListaProd=miListaProd;
         miVentanaIngreso =new ventanaEntradaClientes();
         miViewIngresoProd=new VentanaEntradaProductos();
         this.miEmpresas=miEmpresas;
@@ -43,7 +42,8 @@ public class Controlador implements ActionListener{
         viewCrud.btnCrear.addActionListener(this);
         viewCrud.btnCrear.setActionCommand("Crear");
         viewCrud.btnBuscar.addActionListener(this);
-        
+        viewCrud.btnModificar.addActionListener(this);
+        viewCrud.btnEliminar.addActionListener(this);
         
         miViewIngresoProd.btnIngresarProd.addActionListener(this);
        
@@ -153,48 +153,35 @@ public class Controlador implements ActionListener{
           
           
           if(miViewIngresoProd.btnIngresarProd==e.getSource()){
-              //miListaProd.agregarProducto(miViewIngresoProd.txtNombProd.getText(),miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
-              miEmpresas.getMiListaProduc().agregarProducto(miViewIngresoProd.txtNombProd.getText(),miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
+              miEmpresas.agregarProducto(miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(), Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
               mostrarProductos();
               miVentanaIngreso.setVisible(false);
-               
-              
-              //System.out.println("**");
               viewCrud.setVisible(true);
           }
-          
-          
-          
-          
-          
-           if(miVentanaIngreso.btnIngresar==e.getSource() ){
-               // miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
-                // miVentanaIngreso=null;
-                 miEmpresas.getMiListaClientes().agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
-                
-                miVentanaIngreso.setVisible(false);
-               
-                mostrarClientes();
-                System.out.println("**");
-                viewCrud.setVisible(true);
+          if(miVentanaIngreso.btnIngresar==e.getSource() ){
+              miEmpresas.getMiListaClientes().agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+              miVentanaIngreso.setVisible(false);
+              mostrarClientes();
+              System.out.println("**");
+              viewCrud.setVisible(true);
              }
           
-           if(viewCrud.btnBuscar==e.getSource()&&casoB==6){
-               Productos miProducto=new Productos();
-               miProducto=miListaProd.consultarProducto(miListaProd,viewCrud.txtBuscar.getText());
-               DefaultListModel modelo = new DefaultListModel();
-               if(miProducto!=null){
+          if(viewCrud.btnBuscar==e.getSource()&&casoB==6){
+              Productos miProducto=new Productos();
+              miProducto=miEmpresas.consultarProducto(viewCrud.txtBuscar.getText());
+              DefaultListModel modelo = new DefaultListModel();
+              if(miProducto!=null){
                    modelo.addElement(miProducto.getNombreProducto());
                    viewCrud.listCrud.setModel(modelo);
                }else{
                    //vemtana mergente no esta el producto
-                    JOptionPane.showMessageDialog(null,"Elemento no encontrado");
+                   JOptionPane.showMessageDialog(null,"Elemento no encontrado");
                }
            }
            
            if(viewCrud.btnBuscar==e.getSource()&&casoB==8){
                Clientes miCliente=new Clientes();
-               miCliente=miListaClientes.consultarCliente(miListaClientes,viewCrud.txtBuscar.getText());
+               miCliente=miEmpresas.getMiListaClientes().consultarCliente(miEmpresas.getMiListaClientes(),viewCrud.txtBuscar.getText());
                DefaultListModel modelo = new DefaultListModel();
                if(miCliente!=null){
                    modelo.addElement(miCliente.getNombre());
@@ -206,7 +193,9 @@ public class Controlador implements ActionListener{
            }
            
            if(viewCrud.btnModificar==e.getSource()){
-             //String value = viewCrud.listCrud.getSelectedItem().toString(); 
+               
+               String value =(String) viewCrud.listCrud.getSelectedValue();
+                System.out.println("---"+value);
            }
            
            
