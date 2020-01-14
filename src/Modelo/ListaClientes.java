@@ -29,8 +29,7 @@ public class ListaClientes{
         this.tailCliente = tailCliente;
     }
     
-    //Funcion para Agregar un nuevo cliente a nuestra lista
-    public void agregarCliente(String Nombre, long telefono,String correo, String direccion){
+public void agregarCliente(String Nombre, long telefono,String correo, String direccion){
         Clientes nuevoCliente=new Clientes(Nombre,telefono,correo,direccion);
         if(headCliente==null){
             headCliente=nuevoCliente;
@@ -55,4 +54,5 @@ public class ListaClientes{
             return miCliente;
         }
     }
+    
 }

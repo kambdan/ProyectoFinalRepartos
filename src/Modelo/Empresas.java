@@ -89,6 +89,10 @@ public class Empresas {
     
     void registrarActividad(){}
     void dicidirRutas(){}
+        //Funcion para Agregar un nuevo cliente a nuestra lista
+    
+    
+    
     
      public void agregarProducto(String NombreProducto,String Unidad, double Peso, double Volumen){
         
@@ -119,32 +123,32 @@ public class Empresas {
         }
     }
     
-void modificarProducto( String NombreProducto,String Unidad, double Peso, double Volumen){
+    public void modificarProducto( String NombreProducto,String Unidad, double Peso, double Volumen){
 
-    Productos nodAux;
-    Productos nodProd;
-    nodAux=nodAux=miListaProduc.getHeadProducto();
-    
-    
-    nodProd=consultarProducto(NombreProducto);
-    if(nodProd!=null){
-	System.out.println("ENCONTRADO");
-	while(nodProd!=nodAux){
-             nodAux=nodAux.getSiguienteProducto();
+        Productos nodAux;
+        Productos nodProd;
+        nodAux=nodAux=miListaProduc.getHeadProducto();
+
+
+        nodProd=consultarProducto(NombreProducto);
+        if(nodProd!=null){
+            System.out.println("ENCONTRADO");
+            while(nodProd!=nodAux){
+                 nodAux=nodAux.getSiguienteProducto();
+            }
+
+
+            nodAux.setNombreProducto(NombreProducto);
+            nodAux.setUnidad(Unidad);
+            nodAux.setPeso(Peso);
+            nodAux.setVolumen(Volumen);
+            System.out.println("MODIFICADO CON EXITO");
+        }else{
+            System.out.println("NO ENCONTRADO");
         }
-           
-	
-        nodAux.setNombreProducto(NombreProducto);
-        nodAux.setUnidad(Unidad);
-        nodAux.setPeso(Peso);
-        nodAux.setVolumen(Volumen);
-        System.out.println("MODIFICADO CON EXITO");
-    }else{
-	System.out.println("NO ENCONTRADO");
     }
-}
 
-void eliminarProducto(String NombreProducto){
+    public void eliminarProducto(String NombreProducto){
 
 	if(miListaProduc.getHeadProducto()!=null){
 		Productos auxBorrar;
@@ -211,7 +215,7 @@ void eliminarProducto(String NombreProducto){
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }else{
             miListaCarac.getTailCaracterisitca().setSiguienteCaracteristica(nuevaCaracteristica);
-            System.out.println("ff");
+            
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }       
     }
