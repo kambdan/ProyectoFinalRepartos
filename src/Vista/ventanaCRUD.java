@@ -36,8 +36,8 @@ public class ventanaCRUD extends javax.swing.JFrame {
         listCrud = new javax.swing.JList<>();
         btnBuscar = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,9 +68,9 @@ public class ventanaCRUD extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Modificar");
+        btnModificar.setText("Modificar");
 
-        jButton3.setText("Eliminar");
+        btnEliminar.setText("Eliminar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -90,9 +90,9 @@ public class ventanaCRUD extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(142, 142, 142)
-                .addComponent(jButton2)
+                .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btnEliminar)
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
@@ -107,8 +107,8 @@ public class ventanaCRUD extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
@@ -137,8 +137,8 @@ public class ventanaCRUD extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnCrear;
-    public javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnModificar;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JList<String> listCrud;
     public javax.swing.JTextField txtBuscar;

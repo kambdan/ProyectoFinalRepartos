@@ -2,6 +2,7 @@
 package CONTROLADOR;
 
 import Modelo.Clientes;
+import Modelo.Empresas;
 import Modelo.ListaClientes;
 import Modelo.ListaProductos;
 import Modelo.Productos;
@@ -21,17 +22,19 @@ public class Controlador implements ActionListener{
     private Clientes miCliente;
     private ventanaEntradaClientes miVentanaIngreso;
     private VentanaPrincipal miViewPrincipal;
+    private Empresas miEmpresas;
     private ventanaCRUD viewCrud;
     private int casoB;
     private VentanaEntradaProductos miViewIngresoProd;
-    public Controlador(VentanaPrincipal miViewPrincipal,ListaClientes miListaClientes,ListaProductos miListaProd) {
+    public Controlador(VentanaPrincipal miViewPrincipal,Empresas miEmpresas) {
         this.miListaClientes=null;
         this.miViewPrincipal=miViewPrincipal;
         viewCrud=new ventanaCRUD();
-        this.miListaClientes=miListaClientes;
+        this.miListaClientes=new ListaClientes();
         this.miListaProd=miListaProd;
         miVentanaIngreso =new ventanaEntradaClientes();
         miViewIngresoProd=new VentanaEntradaProductos();
+        this.miEmpresas=miEmpresas;
         init();
        
              
@@ -150,7 +153,8 @@ public class Controlador implements ActionListener{
           
           
           if(miViewIngresoProd.btnIngresarProd==e.getSource()){
-              miListaProd.agregarProducto(miViewIngresoProd.txtNombProd.getText(),miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
+              //miListaProd.agregarProducto(miViewIngresoProd.txtNombProd.getText(),miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
+              miEmpresas.getMiListaProduc().agregarProducto(miViewIngresoProd.txtNombProd.getText(),miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
               mostrarProductos();
               miVentanaIngreso.setVisible(false);
                
@@ -164,8 +168,10 @@ public class Controlador implements ActionListener{
           
           
            if(miVentanaIngreso.btnIngresar==e.getSource() ){
-                miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+               // miListaClientes.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
                 // miVentanaIngreso=null;
+                 miEmpresas.getMiListaClientes().agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+                
                 miVentanaIngreso.setVisible(false);
                
                 mostrarClientes();
@@ -199,6 +205,9 @@ public class Controlador implements ActionListener{
                }
            }
            
+           if(viewCrud.btnModificar==e.getSource()){
+             //String value = viewCrud.listCrud.getSelectedItem().toString(); 
+           }
            
            
          
@@ -209,7 +218,7 @@ public class Controlador implements ActionListener{
   private void mostrarProductos(){
       DefaultListModel modelo = new DefaultListModel();
       Productos miProducto=new Productos();
-      miProducto=miListaProd.getHeadProducto();
+      miProducto=miEmpresas.getMiListaProduc().getHeadProducto();
       
      while(miProducto!=null){
           modelo.addElement(miProducto.getNombreProducto());
@@ -223,7 +232,7 @@ public class Controlador implements ActionListener{
  private void mostrarClientes(){
       
      Clientes miCliente=new Clientes();
-     miCliente=miListaClientes.getHeadCliente();
+     miCliente=miEmpresas.getMiListaClientes().getHeadCliente();
      DefaultListModel modelo = new DefaultListModel();
      int i=0;
      while(miCliente!=null){
