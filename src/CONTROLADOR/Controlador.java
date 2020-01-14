@@ -1,11 +1,13 @@
 
 package CONTROLADOR;
 
+import Modelo.CaracteristicasEspeciales;
 import Modelo.Clientes;
 import Modelo.Empresas;
 import Modelo.ListaClientes;
 import Modelo.ListaProductos;
 import Modelo.Productos;
+import Vista.VentanaEntradaCaracteristicas;
 import Vista.VentanaEntradaProductos;
 import Vista.ventanaCRUD;
 import Vista.VentanaPrincipal;
@@ -26,13 +28,14 @@ public class Controlador implements ActionListener{
     private ventanaCRUD viewCrud;
     private int casoB;
     private VentanaEntradaProductos miViewIngresoProd;
-    
+    private VentanaEntradaCaracteristicas miViewCaracteristicas;
     public Controlador(VentanaPrincipal miViewPrincipal,Empresas miEmpresas) {
         
         this.miViewPrincipal=miViewPrincipal;
         viewCrud=new ventanaCRUD();
         miVentanaIngreso =new ventanaEntradaClientes();
         miViewIngresoProd=new VentanaEntradaProductos();
+        miViewCaracteristicas=new VentanaEntradaCaracteristicas();
         this.miEmpresas=miEmpresas;
         init();
        
@@ -44,7 +47,7 @@ public class Controlador implements ActionListener{
         viewCrud.btnBuscar.addActionListener(this);
         viewCrud.btnModificar.addActionListener(this);
         viewCrud.btnEliminar.addActionListener(this);
-        
+        miViewCaracteristicas.btnAceptarCaract.addActionListener(this);
         miViewIngresoProd.btnIngresarProd.addActionListener(this);
        
         
@@ -106,6 +109,8 @@ public class Controlador implements ActionListener{
                casoB=4;
             
             }
+             
+             
             if(e.getSource()==miViewPrincipal.btnCaracteristicas){
                viewCrud.setVisible(true);
               
@@ -113,6 +118,33 @@ public class Controlador implements ActionListener{
                casoB=5;
             
             }
+            if(viewCrud.btnCrear==e.getSource()&& casoB==5){
+                miViewCaracteristicas.setVisible(true);
+                viewCrud.setVisible(false);
+            
+            }
+           if(miViewCaracteristicas.btnAceptarCaract==e.getSource()){
+               miEmpresas.agregarCaracteristica(miViewCaracteristicas.txtNombreCaracterisitca.getText(), miViewCaracteristicas.txtDescripcionCaract.getText());
+               mostrarCaracteristicas();
+               viewCrud.setVisible(true);
+               miViewCaracteristicas.setVisible(false);
+           }
+           if(viewCrud.btnBuscar==e.getSource() && casoB==5){
+               
+              CaracteristicasEspeciales miCaract=new CaracteristicasEspeciales();
+              miCaract=miEmpresas.consultarCaracteristica(viewCrud.txtBuscar.getText());
+              DefaultListModel modelo = new DefaultListModel();
+              if(miCaract!=null){
+                   modelo.addElement(miCaract.getCaracteristicas());
+                   viewCrud.listCrud.setModel(modelo);
+               }else{
+                   //vemtana mergente no esta el producto
+                   JOptionPane.showMessageDialog(null,"Elemento no encontrado");
+               }
+           
+           }
+            
+            
              if(e.getSource()==miViewPrincipal.btnProducto){
                 viewCrud.setVisible(true);
               
@@ -193,15 +225,12 @@ public class Controlador implements ActionListener{
            }
            
            if(viewCrud.btnModificar==e.getSource()&& casoB==8){
-               
                String value =(String) viewCrud.listCrud.getSelectedValue();
                System.out.println("---"+value);
                miViewIngresoProd.setVisible(true);
-               
-                
-                
            }
            
+
            
          
            
@@ -233,6 +262,22 @@ public class Controlador implements ActionListener{
           miCliente=miCliente.getSiguienteCliente();
           System.out.println(": "+i+" ");
           i++;
+     }
+     viewCrud.listCrud.setModel(modelo);
+    }
+
+    private void mostrarCaracteristicas() {
+      
+     CaracteristicasEspeciales miCar=new CaracteristicasEspeciales();
+   
+     miCar=miEmpresas.getMiListaCarac().getHeadCaracteristica();
+     DefaultListModel modelo = new DefaultListModel();
+     int i=0;
+     while(miCar!=null){
+          modelo.addElement(miCar.getCaracteristicas());
+          miCar=miCar.getSiguienteCaracteristica();
+          
+         
      }
      viewCrud.listCrud.setModel(modelo);
     }

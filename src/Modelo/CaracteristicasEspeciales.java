@@ -15,10 +15,13 @@ public class CaracteristicasEspeciales {
     private String descripcion;
     private CaracteristicasEspeciales siguienteCaracteristica;
         
-    public CaracteristicasEspeciales() {
+    public CaracteristicasEspeciales(String caracteristicas,String descripcion) {
         this.caracteristicas=caracteristicas;
         this.descripcion=descripcion;
         this.siguienteCaracteristica=null;
+    }
+    public CaracteristicasEspeciales(){
+    
     }
   
     public CaracteristicasEspeciales getSiguienteCaracteristica() {

@@ -9,12 +9,12 @@ package Vista;
  *
  * @author CARLOS ARMIJOS
  */
-public class VentanaEntradaCaracterisitcas extends javax.swing.JFrame {
+public class VentanaEntradaCaracteristicas extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaEntradaCaracterisitcas
      */
-    public VentanaEntradaCaracterisitcas() {
+    public VentanaEntradaCaracteristicas() {
         initComponents();
     }
 
@@ -131,26 +131,29 @@ public class VentanaEntradaCaracterisitcas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaEntradaCaracterisitcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEntradaCaracteristicas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaEntradaCaracterisitcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEntradaCaracteristicas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaEntradaCaracterisitcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEntradaCaracteristicas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaEntradaCaracterisitcas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaEntradaCaracteristicas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaEntradaCaracterisitcas().setVisible(true);
+                new VentanaEntradaCaracteristicas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptarCaract;
+    public javax.swing.JButton btnAceptarCaract;
     private javax.swing.JButton btnCancelkarCaract;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

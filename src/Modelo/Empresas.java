@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Modelo;
 
 /**
@@ -202,15 +203,14 @@ void eliminarProducto(String NombreProducto){
     
     public void agregarCaracteristica(String caracteristica,String descripcion){
         
-        CaracteristicasEspeciales nuevaCaracteristica=new CaracteristicasEspeciales();
-        nuevaCaracteristica.setCaracteristicas(caracteristica);
-        nuevaCaracteristica.setDescripcion(descripcion);
+        CaracteristicasEspeciales nuevaCaracteristica=new CaracteristicasEspeciales(caracteristica,descripcion);
+        
         
         if(miListaCarac.getHeadCaracteristica()==null){
             miListaCarac.setHeadCaracteristica(nuevaCaracteristica);
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }else{
-            miListaCarac.getTailCaracterisitca().setCaracteristicas(caracteristica);
+            miListaCarac.getTailCaracterisitca().setSiguienteCaracteristica(nuevaCaracteristica);
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }       
     }
