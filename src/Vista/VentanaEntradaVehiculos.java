@@ -192,8 +192,8 @@ public class VentanaEntradaVehiculos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAceptarVehiculo;
-    private javax.swing.JButton btnCancelarVehiculo;
+    public javax.swing.JButton btnAceptarVehiculo;
+    public javax.swing.JButton btnCancelarVehiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

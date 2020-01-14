@@ -277,5 +277,83 @@ void eliminarProducto(String NombreProducto){
             }
         }
     
- 
+    //**************************************************************************
+    
+        //Funcion para Agregar un nuevo cliente a nuestra lista
+    public void agregarCliente(String Nombre, long telefono,String correo, String direccion){
+        
+        Clientes nuevoCliente=new Clientes(Nombre,telefono,correo,direccion);
+        if(miListaClientes.getHeadCliente()==null){
+            miListaClientes.setHeadCliente(nuevoCliente);
+            miListaClientes.setTailCliente(nuevoCliente);
+        }else{
+            miListaClientes.getTailCliente().setSiguienteCliente(nuevoCliente);
+            miListaClientes.setTailCliente(nuevoCliente);
+        }
+    }
+    
+    public Clientes consultarCliente(String NombreCliente){
+        Clientes miCliente;
+        miCliente=miListaClientes.getHeadCliente();
+        while(miCliente!=null && !miCliente.getNombre().equals(NombreCliente)){
+          miCliente=miCliente.getSiguienteCliente();
+        }
+        if(miCliente==null){
+            return miCliente;
+        }else{
+            return miCliente;
+        }
+    }
+    
+    public void modificarCliente(String NombreCliente, long telefono, String correo, String direccion){
+
+        Clientes nodAux;
+        Clientes nodCliente;
+        nodAux=miListaClientes.getHeadCliente();
+        nodCliente=consultarCliente(NombreCliente);
+        if(nodCliente!=null){
+            System.out.println("ENCONTRADO");
+            while(nodCliente!=nodAux){
+                 nodAux=nodAux.getSiguienteCliente();
+            }
+            nodAux.setNombre(NombreCliente);
+            nodAux.setTelefono(telefono);
+            nodAux.setCorreoElectronico(correo);
+            nodAux.setDireccion(direccion);
+
+            System.out.println("MODIFICADO CON EXITO");
+        }else{
+            System.out.println("NO ENCONTRADO");
+            }
+    }
+    
+    public void eliminarCliente(String NombreCliente){
+
+        if(miListaClientes.getHeadCliente()!=null){
+                Clientes auxBorrar;
+                Clientes anterior=null;
+                auxBorrar=miListaClientes.getHeadCliente();
+                while((auxBorrar!=null)&&(auxBorrar.getNombre()!=NombreCliente)){
+                        anterior=auxBorrar;
+                        auxBorrar=auxBorrar.getSiguienteCliente();
+
+                }
+                if(auxBorrar==null){
+                    System.out.println("ELEMENTO NO EXISTE");
+                }else{
+
+                    if(anterior==null){//para eliminar el primer elemento de la lista
+                        miListaClientes.setHeadCliente(miListaClientes.getHeadCliente().getSiguienteCliente());
+                        auxBorrar=null;
+                    }else{//cualquier elemento que se vaya a borrar
+                        anterior.setSiguienteCliente(auxBorrar.getSiguienteCliente());
+                        auxBorrar=null;
+                    }
+                    System.out.println("ELIMINADO CON EXITO");
+                }
+        }
+    }
+    
+    //**************************************************************************
+    
 }

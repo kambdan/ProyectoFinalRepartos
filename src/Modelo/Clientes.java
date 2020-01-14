@@ -12,10 +12,10 @@ public class Clientes extends Personas{
     public Clientes(){
     
     }
-    public Clientes(String Nombre, long telefono,String correo, String d){
+    public Clientes(String Nombre, long telefono,String correo, String direccion){
         super(Nombre,telefono);
         this.correoElectronico=correo;
-        this.direccion=d;
+        this.direccion=direccion;
         this.siguienteCliente=null;
         
     }

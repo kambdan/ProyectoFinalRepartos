@@ -16,10 +16,14 @@ public class Vehiculos {
     public Vehiculos(String placa, String marca, String modelo, double peso, double volumen){
         this.Placa=placa;
         this.Marca=marca;
-        this.Modelo=Modelo;
+        this.Modelo=modelo;
         this.PesoMaximo=peso;
         this.VolumenMaximo=volumen;
         this.siguienteVehiculo=null;
+    }
+    
+    public Vehiculos(){
+    
     }
     
     public String getPlaca() {

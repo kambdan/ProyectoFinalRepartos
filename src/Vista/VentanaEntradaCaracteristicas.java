@@ -154,7 +154,7 @@ public class VentanaEntradaCaracteristicas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAceptarCaract;
-    private javax.swing.JButton btnCancelkarCaract;
+    public javax.swing.JButton btnCancelkarCaract;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

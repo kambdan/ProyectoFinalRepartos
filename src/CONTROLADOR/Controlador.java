@@ -7,8 +7,10 @@ import Modelo.Empresas;
 import Modelo.ListaClientes;
 import Modelo.ListaProductos;
 import Modelo.Productos;
+import Modelo.Vehiculos;
 import Vista.VentanaEntradaCaracteristicas;
 import Vista.VentanaEntradaProductos;
+import Vista.VentanaEntradaVehiculos;
 import Vista.ventanaCRUD;
 import Vista.VentanaPrincipal;
 import Vista.ventanaEntradaClientes;
@@ -29,6 +31,9 @@ public class Controlador implements ActionListener{
     private int casoB;
     private VentanaEntradaProductos miViewIngresoProd;
     private VentanaEntradaCaracteristicas miViewCaracteristicas;
+    private VentanaEntradaVehiculos miViewVehiculos;
+    
+    
     public Controlador(VentanaPrincipal miViewPrincipal,Empresas miEmpresas) {
         
         this.miViewPrincipal=miViewPrincipal;
@@ -36,6 +41,7 @@ public class Controlador implements ActionListener{
         miVentanaIngreso =new ventanaEntradaClientes();
         miViewIngresoProd=new VentanaEntradaProductos();
         miViewCaracteristicas=new VentanaEntradaCaracteristicas();
+        miViewVehiculos=new VentanaEntradaVehiculos();
         this.miEmpresas=miEmpresas;
         init();
        
@@ -49,8 +55,8 @@ public class Controlador implements ActionListener{
         viewCrud.btnEliminar.addActionListener(this);
         miViewCaracteristicas.btnAceptarCaract.addActionListener(this);
         miViewIngresoProd.btnIngresarProd.addActionListener(this);
-       
-        
+        miViewVehiculos.btnAceptarVehiculo.addActionListener(this);
+        miViewVehiculos.btnCancelarVehiculo.addActionListener(this);
         
         
         miViewPrincipal.btnClientes.addActionListener(this);
@@ -95,6 +101,10 @@ public class Controlador implements ActionListener{
                casoB=2;
             
             }
+            
+            //**********************************************
+            //VENTANA QUE CONTROLA LA OPCION VEHICULOS
+            
             if(e.getSource()==miViewPrincipal.btnVehiculos){
                viewCrud.setVisible(true);
               
@@ -102,7 +112,45 @@ public class Controlador implements ActionListener{
                casoB=3;
             
             }
-             if(e.getSource()==miViewPrincipal.btnConductores){
+            
+            if(viewCrud.btnCrear==e.getSource() && casoB==3){
+                miViewVehiculos.setVisible(true);
+                viewCrud.setVisible(false);
+            }
+            
+            
+            
+            if(miViewVehiculos.btnAceptarVehiculo==e.getSource()){
+                miEmpresas.agregarVehiculo(miViewVehiculos.txtPlacaVehiculo.getText(), miViewVehiculos.txtMarcaVehiculo.getText(), miViewVehiculos.txtModeloVehiculo.getText(),Double.parseDouble(miViewVehiculos.txtPesoMaximoVehiculo.getText()), Double.parseDouble(miViewVehiculos.txtVolumneMaximoVehiculo.getText()));
+                mostarVehiculos();
+                viewCrud.setVisible(true);
+                miViewVehiculos.setVisible(false);
+            }else{
+               if(miViewVehiculos.btnCancelarVehiculo==e.getSource()){
+                   miViewVehiculos.setVisible(false);
+                   viewCrud.setVisible(true);
+               } 
+            
+            }   
+           
+            if(viewCrud.btnBuscar==e.getSource() && casoB==3){
+                
+                Vehiculos miVehiculo=new Vehiculos();
+                miVehiculo=miEmpresas.consultarVehiculos(viewCrud.txtBuscar.getText());
+                DefaultListModel modelo = new DefaultListModel();
+                if(miVehiculo!=null){
+                    modelo.addElement(miVehiculo.getPlaca());
+                    viewCrud.listCrud.setModel(modelo);
+                }else{
+                   //vemtana mergente no esta el producto
+                    JOptionPane.showMessageDialog(null,"Elemento no encontrado");
+                }
+           }         
+            //Termina el controlador para la opcion VEHICULOS
+            
+            
+            
+            if(e.getSource()==miViewPrincipal.btnConductores){
                viewCrud.setVisible(true);
               
                miViewPrincipal.setVisible(false);
@@ -128,7 +176,15 @@ public class Controlador implements ActionListener{
                mostrarCaracteristicas();
                viewCrud.setVisible(true);
                miViewCaracteristicas.setVisible(false);
+           }else{
+               if(miViewCaracteristicas.btnCancelkarCaract==e.getSource()){
+                   miViewCaracteristicas.setVisible(false);
+                   viewCrud.setVisible(true);
+               }
+           
            }
+           
+           
            if(viewCrud.btnBuscar==e.getSource() && casoB==5){
                
               CaracteristicasEspeciales miCaract=new CaracteristicasEspeciales();
@@ -179,11 +235,7 @@ public class Controlador implements ActionListener{
             viewCrud.setVisible(false);
                      
             }
-            
-          //if(viewCrud.btnB)
-          
-          
-          
+                   
           if(miViewIngresoProd.btnIngresarProd==e.getSource()){
               miEmpresas.agregarProducto(miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(), Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
               mostrarProductos();
@@ -191,10 +243,9 @@ public class Controlador implements ActionListener{
               viewCrud.setVisible(true);
           }
           if(miVentanaIngreso.btnIngresar==e.getSource() ){
-              miEmpresas.getMiListaClientes().agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
+              miEmpresas.agregarCliente(miVentanaIngreso.jTextFieldNombre.getText(),Long.parseLong(miVentanaIngreso.jTextFieldTelefono.getText()),miVentanaIngreso.jTextFieldCorreo.getText(),miVentanaIngreso.jTextFieldDireccion.getText());
               miVentanaIngreso.setVisible(false);
               mostrarClientes();
-              System.out.println("**");
               viewCrud.setVisible(true);
              }
           
@@ -213,7 +264,7 @@ public class Controlador implements ActionListener{
            
            if(viewCrud.btnBuscar==e.getSource()&&casoB==8){
                Clientes miCliente=new Clientes();
-               miCliente=miEmpresas.getMiListaClientes().consultarCliente(miEmpresas.getMiListaClientes(),viewCrud.txtBuscar.getText());
+               miCliente=miEmpresas.consultarCliente(viewCrud.txtBuscar.getText());
                DefaultListModel modelo = new DefaultListModel();
                if(miCliente!=null){
                    modelo.addElement(miCliente.getNombre());
@@ -251,7 +302,7 @@ public class Controlador implements ActionListener{
      viewCrud.listCrud.setModel(modelo);
     }
  
- private void mostrarClientes(){
+    private void mostrarClientes(){
       
      Clientes miCliente=new Clientes();
      miCliente=miEmpresas.getMiListaClientes().getHeadCliente();
@@ -280,6 +331,18 @@ public class Controlador implements ActionListener{
          
      }
      viewCrud.listCrud.setModel(modelo);
+    }
+
+    private void mostarVehiculos() {
+        
+        Vehiculos miVehiculo=new Vehiculos();
+        miVehiculo=miEmpresas.getMiListaVehic().getHeadVehiculos();
+        DefaultListModel modelo = new DefaultListModel();
+        while(miVehiculo!=null){
+            modelo.addElement(miVehiculo.getPlaca());
+            miVehiculo=miVehiculo.getSiguienteVehiculo(); 
+        }
+        viewCrud.listCrud.setModel(modelo);
     }
  
  
