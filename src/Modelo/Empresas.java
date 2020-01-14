@@ -211,6 +211,7 @@ void eliminarProducto(String NombreProducto){
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }else{
             miListaCarac.getTailCaracterisitca().setSiguienteCaracteristica(nuevaCaracteristica);
+            System.out.println("ff");
             miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
         }       
     }

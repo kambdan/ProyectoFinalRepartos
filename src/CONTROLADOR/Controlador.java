@@ -118,6 +118,10 @@ public class Controlador implements ActionListener{
                casoB=5;
             
             }
+            
+            
+            
+//************************************************************************************************solo para las caracteristicas
             if(viewCrud.btnCrear==e.getSource()&& casoB==5){
                 miViewCaracteristicas.setVisible(true);
                 viewCrud.setVisible(false);
