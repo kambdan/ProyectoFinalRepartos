@@ -103,7 +103,7 @@ public class Empresas {
         }
     }
     
-    public Productos consultarProducto( String NombreProducto){
+    public Productos consultarProducto(String NombreProducto){
         
         Productos miProducto;
         miProducto=miListaProduc.getHeadProducto();
@@ -120,8 +120,6 @@ public class Empresas {
     
 void modificarProducto( String NombreProducto,String Unidad, double Peso, double Volumen){
 
-    int posicion;
-    //char dato[100];
     Productos nodAux;
     Productos nodProd;
     nodAux=nodAux=miListaProduc.getHeadProducto();
@@ -145,7 +143,7 @@ void modificarProducto( String NombreProducto,String Unidad, double Peso, double
     }
 }
 
-void eliminarProducto(ListaProductos miLista, String NombreProducto){
+void eliminarProducto(String NombreProducto){
 
 	if(miListaProduc.getHeadProducto()!=null){
 		Productos auxBorrar;
@@ -173,6 +171,111 @@ void eliminarProducto(ListaProductos miLista, String NombreProducto){
 	}
     }   
     
+    //*****************************************************************************
+
+    public void agregarVehiculo(String placa, String marca, String modelo, double peso, double volumen){
+            Vehiculos nuevoVehiculo=new Vehiculos(placa, marca, modelo, peso, volumen);
+            if(miListaVehic.getHeadVehiculos()==null){
+                miListaVehic.setHeadVehiculos(nuevoVehiculo);
+                miListaVehic.setTailVehiculos(nuevoVehiculo);
+            }else{
+                miListaVehic.getTailVehiculos().setSiguienteVehiculo(nuevoVehiculo);
+                miListaVehic.setTailVehiculos(nuevoVehiculo);
+            }
+        }
+    
+    public Vehiculos consultarVehiculos(String placa){
+        
+        Vehiculos miVehiculo;
+        miVehiculo=miListaVehic.getHeadVehiculos();
+        while(miVehiculo!=null && !miVehiculo.getPlaca().equals(placa)){
+          miVehiculo=miVehiculo.getSiguienteVehiculo();
+        }
+        if(miVehiculo==null){
+            return miVehiculo;
+        }else{
+            return miVehiculo;
+        }
+    }
+    
+    //**************************************************************************
+    
+    public void agregarCaracteristica(String caracteristica,String descripcion){
+        
+        CaracteristicasEspeciales nuevaCaracteristica=new CaracteristicasEspeciales();
+        nuevaCaracteristica.setCaracteristicas(caracteristica);
+        nuevaCaracteristica.setDescripcion(descripcion);
+        
+        if(miListaCarac.getHeadCaracteristica()==null){
+            miListaCarac.setHeadCaracteristica(nuevaCaracteristica);
+            miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
+        }else{
+            miListaCarac.getTailCaracterisitca().setCaracteristicas(caracteristica);
+            miListaCarac.setTailCaracterisitca(nuevaCaracteristica);
+        }       
+    }
     
     
+    public CaracteristicasEspeciales consultarCaracteristica(String NombreCaracteristica){
+       
+        CaracteristicasEspeciales miCaracterisitca;
+        miCaracterisitca=miListaCarac.getHeadCaracteristica();
+        while(miCaracterisitca!=null && !miCaracterisitca.getCaracteristicas().equals(NombreCaracteristica)){
+          miCaracterisitca=miCaracterisitca.getSiguienteCaracteristica();
+        }
+        if(miCaracterisitca==null){
+            return miCaracterisitca;
+        }else{
+            return miCaracterisitca;
+        }
+    }
+    
+    public void modificarCaracteristica(String NombreCaracteristica, String Descripcion){
+
+    CaracteristicasEspeciales nodAux;
+    CaracteristicasEspeciales nodCaracteristica;
+    nodAux=miListaCarac.getHeadCaracteristica();
+    
+    nodCaracteristica=consultarCaracteristica(NombreCaracteristica);
+    if(nodCaracteristica!=null){
+	System.out.println("ENCONTRADO");
+	while(nodCaracteristica!=nodAux){
+             nodAux=nodAux.getSiguienteCaracteristica();
+        }
+        nodAux.setCaracteristicas(NombreCaracteristica);
+        nodAux.setDescripcion(Descripcion);
+
+        System.out.println("MODIFICADO CON EXITO");
+    }else{
+	System.out.println("NO ENCONTRADO");
+        }
+    }
+    public void eliminarCaracteristica(String NombreCaracteristica){
+
+            if(miListaCarac.getHeadCaracteristica()!=null){
+                    CaracteristicasEspeciales auxBorrar;
+                    CaracteristicasEspeciales anterior=null;
+                    auxBorrar=miListaCarac.getHeadCaracteristica();
+                    while((auxBorrar!=null)&&(auxBorrar.getCaracteristicas()!=NombreCaracteristica)){
+                            anterior=auxBorrar;
+                            auxBorrar=auxBorrar.getSiguienteCaracteristica();
+
+                    }
+                    if(auxBorrar==null){
+                        System.out.println("ELEMENTO NO EXISTE");
+                    }else{
+
+                        if(anterior==null){//para eliminar el primer elemento de la lista
+                            miListaCarac.setHeadCaracteristica(miListaCarac.getHeadCaracteristica().getSiguienteCaracteristica());
+                            auxBorrar=null;
+                        }else{//cualquier elemento que se vaya a borrar
+                            anterior.setSiguienteCaracteristica(auxBorrar.getSiguienteCaracteristica());
+                            auxBorrar=null;
+                        }
+                        System.out.println("ELIMINADO CON EXITO");
+                    }
+            }
+        }
+    
+ 
 }

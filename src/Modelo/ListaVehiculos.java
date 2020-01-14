@@ -29,15 +29,5 @@ public class ListaVehiculos {
     
     //Funcion para agregar un vehiculo a una lista de vehiculos
     //El Peso y el volumen hace referencia a un peso,volumen maximo que transporta Un vehiculo
-    void agregarVehiculo(String placa, String marca, String modelo, double peso, double volumen){
-        Vehiculos nuevoVehiculo=new Vehiculos(placa, marca, modelo, peso, volumen);
-        if(headVehiculos==null){
-            headVehiculos=nuevoVehiculo;
-            tailVehiculos=nuevoVehiculo;
-        }else{
-            tailVehiculos.setSiguienteVehiculo(nuevoVehiculo);
-            tailVehiculos=nuevoVehiculo;
-        }
+       
     }
-    
-}
