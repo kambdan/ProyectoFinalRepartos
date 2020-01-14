@@ -192,10 +192,14 @@ public class Controlador implements ActionListener{
                }
            }
            
-           if(viewCrud.btnModificar==e.getSource()){
+           if(viewCrud.btnModificar==e.getSource()&& casoB==8){
                
                String value =(String) viewCrud.listCrud.getSelectedValue();
-                System.out.println("---"+value);
+               System.out.println("---"+value);
+               miViewIngresoProd.setVisible(true);
+               
+                
+                
            }
            
            

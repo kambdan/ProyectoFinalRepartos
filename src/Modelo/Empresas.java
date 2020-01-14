@@ -145,7 +145,7 @@ void modificarProducto( String NombreProducto,String Unidad, double Peso, double
     }
 }
 
-void eliminarProducto(ListaProductos miLista, String NombreProducto){
+void eliminarProducto(String NombreProducto){
 
 	if(miListaProduc.getHeadProducto()!=null){
 		Productos auxBorrar;
