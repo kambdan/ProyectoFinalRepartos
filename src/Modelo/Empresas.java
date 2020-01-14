@@ -123,14 +123,14 @@ public class Empresas {
         }
     }
     
-    public void modificarProducto( String NombreProducto,String Unidad, double Peso, double Volumen){
+    public void modificarProducto( String palabraModificar,String NombreProducto,String Unidad, double Peso, double Volumen){
 
         Productos nodAux;
         Productos nodProd;
-        nodAux=nodAux=miListaProduc.getHeadProducto();
+        nodAux=miListaProduc.getHeadProducto();
 
 
-        nodProd=consultarProducto(NombreProducto);
+        nodProd=consultarProducto(palabraModificar);
         if(nodProd!=null){
             System.out.println("ENCONTRADO");
             while(nodProd!=nodAux){
@@ -138,10 +138,10 @@ public class Empresas {
             }
 
 
-            nodAux.setNombreProducto(NombreProducto);
-            nodAux.setUnidad(Unidad);
-            nodAux.setPeso(Peso);
-            nodAux.setVolumen(Volumen);
+            nodProd.setNombreProducto(NombreProducto);
+            nodProd.setUnidad(Unidad);
+            nodProd.setPeso(Peso);
+            nodProd.setVolumen(Volumen);
             System.out.println("MODIFICADO CON EXITO");
         }else{
             System.out.println("NO ENCONTRADO");

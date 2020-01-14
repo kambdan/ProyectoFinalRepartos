@@ -178,13 +178,11 @@ public class Controlador implements ActionListener{
                    JOptionPane.showMessageDialog(null,"Elemento no encontrado");
                }
            }
-            if(viewCrud.btnModificar==e.getSource() && casoB==6){
-                
-            
-            }
-            if(miViewIngresoProd.btnIngresarProd==e.getSource()){
+           
+          if(miViewIngresoProd.btnIngresarProd==e.getSource() && casoB==6 && casoModificar!=6){
               miEmpresas.agregarProducto(miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(), Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
               mostrarProductos();
+              System.out.println("  si otra vez");
               miVentanaIngreso.setVisible(false);
               viewCrud.setVisible(true);
           }
@@ -201,11 +199,16 @@ public class Controlador implements ActionListener{
                miViewIngresoProd.txtVolum.setText(String.valueOf(miProd.getVolumen()));
                miViewIngresoProd.txtPeso.setText(String.valueOf(miProd.getPeso()));
                miViewIngresoProd.setVisible(true);
+               viewCrud.setVisible(false);
                casoModificar=6;
+               
            }
-           if(casoModificar==6){
-            miEmpresas.modificarProducto(miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()), Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
-            }
+           if(miViewIngresoProd.btnIngresarProd==e.getSource() && casoModificar==6){
+                miEmpresas.modificarProducto(viewCrud.listCrud.getSelectedValue().toString(),miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(),Double.parseDouble(miViewIngresoProd.txtPeso.getText()), Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
+                viewCrud.setVisible(true);
+                mostrarProductos();
+                casoModificar=0;
+           }
             
             
             
