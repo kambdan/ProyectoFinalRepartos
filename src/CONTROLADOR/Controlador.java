@@ -195,12 +195,7 @@ public class Controlador implements ActionListener{
             if(viewCrud.btnModificar==e.getSource()&& casoB==5){
                String value =(String) viewCrud.listCrud.getSelectedValue();
                miViewCaracteristicas.setVisible(true);
-               CaracteristicasEspeciales miCaract=new CaracteristicasEspeciales();
-               miCaract=miEmpresas.consultarCaracteristica(value);
-               
-               miViewCaracteristicas.txtNombreCaracterisitca.setText(miCaract.getCaracteristicas());
-               miViewCaracteristicas.txtDescripcionCaract.setText(miCaract.getDescripcion());
-               
+               actualizarEnVentanaCaracteristicas(value);
                miViewCaracteristicas.setVisible(true);
                viewCrud.setVisible(false);
                casoModificar=5;   
@@ -213,30 +208,27 @@ public class Controlador implements ActionListener{
             } 
             //Aquiva va el METODO DE ELIMINAR
            
-           
+            if(viewCrud.btnEliminar==e.getSource() && casoB==5){
+                miEmpresas.eliminarCaracteristica(viewCrud.listCrud.getSelectedValue());
+                viewCrud.setVisible(true);
+                mostrarProductos();    
+            }
+            
            //Se termina el controlador para CARACTERISTICAS ESPECIALES
            
            
            
        //VENTANA QUE CONTROLA LA OPCION PRODUCTOS
             
-             if(e.getSource()==miViewPrincipal.btnProducto){
+            if(e.getSource()==miViewPrincipal.btnProducto){
                 viewCrud.setVisible(true);
-              
                 miViewPrincipal.setVisible(false);
-               casoB=6;
-            
+                casoB=6; 
             }
             if(viewCrud.btnCrear==e.getSource()&&casoB==6){
                 miViewIngresoProd.setVisible(true);
                 viewCrud.setVisible(false);
-                     
             }
-             
-            
-            
-            
-            
             if(viewCrud.btnBuscar==e.getSource()&&casoB==6){
               Productos miProducto=new Productos();
               miProducto=miEmpresas.consultarProducto(viewCrud.txtBuscar.getText());
@@ -253,7 +245,7 @@ public class Controlador implements ActionListener{
           if(miViewIngresoProd.btnIngresarProd==e.getSource() && casoB==6 && casoModificar!=6){
               miEmpresas.agregarProducto(miViewIngresoProd.txtNombProd.getText(), miViewIngresoProd.txtUnidad.getText(), Double.parseDouble(miViewIngresoProd.txtPeso.getText()),Double.parseDouble(miViewIngresoProd.txtVolum.getText()));
               mostrarProductos();
-              System.out.println("  si otra vez");
+              //System.out.println("  si otra vez");
               miVentanaIngreso.setVisible(false);
               viewCrud.setVisible(true);
           }
@@ -261,7 +253,7 @@ public class Controlador implements ActionListener{
             
             if(viewCrud.btnModificar==e.getSource()&& casoB==6){
                String value =(String) viewCrud.listCrud.getSelectedValue();
-               System.out.println("---"+value);
+               //System.out.println("---"+value);
                miViewIngresoProd.setVisible(true);
                Productos miProd=new Productos();
                miProd=miEmpresas.consultarProducto(value);
@@ -282,6 +274,9 @@ public class Controlador implements ActionListener{
             }
             
             //METODO PARA ELIMINAR UN PORDUCTO
+            
+            
+            
             
             
             //TERMINA LA VENTANA DE CONTROLADOR DE PRODUCTOS
@@ -466,7 +461,12 @@ public class Controlador implements ActionListener{
         viewCrud.listCrud.setModel(modelo);
     }
  
- 
+    private void actualizarEnVentanaCaracteristicas(String value){
+        CaracteristicasEspeciales miCaract=new CaracteristicasEspeciales();
+        miCaract=miEmpresas.consultarCaracteristica(value);       
+        miViewCaracteristicas.txtNombreCaracterisitca.setText(miCaract.getCaracteristicas());
+        miViewCaracteristicas.txtDescripcionCaract.setText(miCaract.getDescripcion());
+    }
  }
 
     
